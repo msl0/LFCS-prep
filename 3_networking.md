@@ -326,6 +326,7 @@ sudo systemctl status ssh
 **Your Tasks**:
 
 **Part A: Server Configuration**
+
 1. Change the SSH port from 22 to 2222
 2. Disable root login via SSH
 3. Disable password authentication (only after setting up key auth)
@@ -335,6 +336,7 @@ sudo systemctl status ssh
 7. Enable verbose logging for SSH connections
 
 **Part B: Client Configuration**
+
 8. Generate an ED25519 SSH key pair with a passphrase
 9. Copy the public key to the server for the "admin" user
 10. Configure SSH client to use connection multiplexing and compression
@@ -538,6 +540,7 @@ sudo iptables -L -v -n
 **Your Tasks**:
 
 **Part A: Using UFW**
+
 1. Enable UFW and set default policies: deny incoming, allow outgoing
 2. Allow SSH (port 2222 from previous task) only from 192.168.1.0/24
 3. Allow HTTP (port 80) and HTTPS (port 443) from anywhere
@@ -546,6 +549,7 @@ sudo iptables -L -v -n
 6. Configure rate limiting on SSH to prevent brute force attacks
 
 **Part B: Using iptables (NAT and Port Forwarding)**
+
 7. Enable IP forwarding in the kernel
 8. Configure SNAT/Masquerading for the internal network 10.0.0.0/24 to access internet
 9. Set up port forwarding (DNAT) to redirect incoming traffic on port 80 to internal port 8080
@@ -777,6 +781,7 @@ route -n
 **Your Tasks**:
 
 **Part A: Static Routing**
+
 1. Add a static route for the 10.10.0.0/24 network via gateway 192.168.1.254
 2. Add a static route for the 172.16.0.0/24 network via gateway 192.168.1.253
 3. Configure these routes to persist after reboot using Netplan
@@ -784,6 +789,7 @@ route -n
 5. Verify routing table and test connectivity
 
 **Part B: Network Bonding**
+
 6. Install bonding module and dependencies
 7. Create a bonding interface (bond0) using two Ethernet interfaces in active-backup mode
 8. Assign IP address 192.168.100.100/24 to the bond interface

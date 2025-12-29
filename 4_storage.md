@@ -167,17 +167,20 @@ losetup -a | grep fs_
 **Your Tasks**:
 
 **Part A: Filesystem Creation**
+
 1. Create an ext4 filesystem on the first loop device with a volume label "DATA_EXT4" and 4096-byte block size
 2. Create an XFS filesystem on the second loop device with a volume label "DATA_XFS"
 3. Create mount points at `/mnt/ext4_data` and `/mnt/xfs_data`
 4. Mount both filesystems and verify they are accessible
 
 **Part B: Persistent Mounts and Options**
+
 5. Add entries to `/etc/fstab` to mount both filesystems automatically at boot
 6. Configure the ext4 mount to use `noatime` option (for performance) and `errors=remount-ro` for error handling
 7. Test the fstab configuration using `mount -a` without rebooting
 
 **Part C: Filesystem Troubleshooting**
+
 8. Create an ext4 filesystem on the third loop device and mount it
 9. Write some test files to it, then forcefully unmount and simulate corruption
 10. Use filesystem check tools to detect and repair the corruption

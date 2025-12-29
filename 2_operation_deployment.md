@@ -711,6 +711,7 @@ chmod +x scripts/cleanup.sh
 **Your Tasks**:
 
 **Part A: Using cron**
+
 1. View the current user's crontab and system-wide cron jobs
 2. Create a crontab entry that runs the backup script every day at 2:00 AM
 3. Create a crontab entry that runs the cleanup script every Sunday at 3:00 AM
@@ -720,18 +721,21 @@ chmod +x scripts/cleanup.sh
 7. Redirect cron job output to a log file
 
 **Part B: Using at for one-time jobs**
+
 8. Schedule a one-time job to run in 2 minutes using `at`
 9. Schedule a job to run at a specific time tomorrow
 10. List all pending `at` jobs
 11. Remove an `at` job before it executes
 
 **Part C: Using systemd timers**
+
 12. Create a systemd timer that runs a service every hour
 13. Create a systemd service and timer for your backup script
 14. Enable and start the timer
 15. Check timer status and view when it will run next
 
 **Part D: Troubleshooting and verification**
+
 16. View cron logs to verify job execution
 17. Test a cron job immediately without waiting for schedule
 18. Create a monitoring script that checks if scheduled jobs are running correctly
@@ -1101,6 +1105,7 @@ sudo cp -r /etc/apt/sources.list.d/ ~/package_lab/repo_backups/
 **Your Tasks**:
 
 **Part A: Basic Package Operations**
+
 1. Search for packages related to "nginx" and "postgresql"
 2. Display detailed information about the `nginx` package (version, dependencies, description)
 3. Install `nginx` and verify it's installed correctly
@@ -1109,6 +1114,7 @@ sudo cp -r /etc/apt/sources.list.d/ ~/package_lab/repo_backups/
 6. Remove `nginx` but keep its configuration files, then purge it completely
 
 **Part B: Repository Management**
+
 7. List all configured repositories (both enabled and disabled)
 8. Add the official PostgreSQL repository to install PostgreSQL 15
 9. Add GPG keys for the new repository
@@ -1117,6 +1123,7 @@ sudo cp -r /etc/apt/sources.list.d/ ~/package_lab/repo_backups/
 12. Disable a repository without removing it
 
 **Part C: Advanced Package Management**
+
 13. Download a `.deb` package without installing it
 14. Install a package from a local `.deb` file
 15. Hold a package at its current version (prevent updates)
@@ -1124,6 +1131,7 @@ sudo cp -r /etc/apt/sources.list.d/ ~/package_lab/repo_backups/
 17. Simulate an upgrade without actually performing it
 
 **Part D: Troubleshooting**
+
 18. Fix broken package dependencies
 19. Verify integrity of installed packages
 20. Find which package a file belongs to
@@ -1533,6 +1541,7 @@ sudo cp /etc/default/grub ~/recovery_lab/backups/
 **Your Tasks**:
 
 **Part A: Understanding the Boot Process**
+
 1. Document the Linux boot sequence from power-on to login prompt
 2. Identify all systemd boot targets and their purposes
 3. Change default boot target to multi-user (non-graphical)
@@ -1540,6 +1549,7 @@ sudo cp /etc/default/grub ~/recovery_lab/backups/
 5. Understand the differences between rescue mode, emergency mode, and single-user mode
 
 **Part B: GRUB Bootloader Recovery**
+
 6. List all GRUB menu entries and examine GRUB configuration
 7. Edit GRUB boot parameters temporarily (during boot)
 8. Modify GRUB default settings permanently
@@ -1547,6 +1557,7 @@ sudo cp /etc/default/grub ~/recovery_lab/backups/
 10. Reinstall GRUB to MBR/ESP partition
 
 **Part C: Filesystem Recovery**
+
 11. Check filesystem integrity with `fsck`
 12. Repair filesystem corruption (simulated on test partition)
 13. Recover from `/etc/fstab` misconfiguration that prevents boot
@@ -1554,6 +1565,7 @@ sudo cp /etc/default/grub ~/recovery_lab/backups/
 15. Access and repair system when root password is forgotten
 
 **Part D: Initramfs and Kernel Issues**
+
 16. Examine initramfs contents and understand its purpose
 17. Rebuild initramfs (initrd) for current kernel
 18. Boot with an older kernel version
@@ -2564,6 +2576,7 @@ cd ~/vm_lab
 **Your Tasks**:
 
 **Part A: KVM Installation and Configuration**
+
 1. Verify hardware virtualization support (VT-x/AMD-V)
 2. Install KVM, QEMU, and libvirt packages
 3. Configure and start libvirt service
@@ -2571,6 +2584,7 @@ cd ~/vm_lab
 5. Verify KVM installation with diagnostic tools
 
 **Part B: Virtual Machine Creation**
+
 6. Download an Ubuntu Server cloud image for quick VM deployment
 7. Create a virtual machine using `virt-install`
 8. Create a VM from an ISO image
@@ -2578,6 +2592,7 @@ cd ~/vm_lab
 10. Configure VM to auto-start on host boot
 
 **Part C: VM Management Operations**
+
 11. Start, stop, and restart VMs
 12. Connect to VM console
 13. Modify VM resources (CPU, memory) while powered off
@@ -2585,6 +2600,7 @@ cd ~/vm_lab
 15. Take and restore VM snapshots
 
 **Part D: Networking and Storage**
+
 16. List available virtual networks
 17. Create a custom isolated virtual network
 18. Attach VM to multiple networks
@@ -3497,6 +3513,7 @@ uname -r  # Kernel 3.10+ required
 **Your Tasks**:
 
 **Part A: Docker Installation and Basic Operations**
+
 1. Install Docker Engine on Ubuntu 22.04
 2. Configure Docker daemon and add user to docker group
 3. Verify Docker installation and run hello-world container
@@ -3504,6 +3521,7 @@ uname -r  # Kernel 3.10+ required
 5. List running and stopped containers
 
 **Part B: Docker Container Management**
+
 6. Run a web server container (nginx) with port mapping
 7. Run a container in detached mode and attach to it
 8. View container logs and inspect container details
@@ -3512,6 +3530,7 @@ uname -r  # Kernel 3.10+ required
 11. Set resource limits (CPU, memory) on containers
 
 **Part C: Docker Images and Dockerfiles**
+
 12. Search for and pull images from Docker Hub
 13. List local images and remove unused images
 14. Create a custom Dockerfile for a simple web application
@@ -3519,6 +3538,7 @@ uname -r  # Kernel 3.10+ required
 16. Push image to a registry (optional: local or Docker Hub)
 
 **Part D: Docker Networking and Volumes**
+
 17. Create and manage Docker networks
 18. Connect containers to custom networks
 19. Create and mount Docker volumes for persistent storage
@@ -3526,6 +3546,7 @@ uname -r  # Kernel 3.10+ required
 21. Link multiple containers (web app + database)
 
 **Part E: Podman Installation and Usage**
+
 22. Install Podman on Ubuntu 22.04
 23. Run containers with Podman (rootless)
 24. Compare Docker and Podman commands

@@ -30,6 +30,7 @@ sudo whoami
 **Your Tasks**:
 
 **Part A: Create Groups and Users**
+
 1. Create three groups: `frontend`, `backend`, and `devops`
 2. Create the following users with their primary groups:
    - User `alice` (primary group: `frontend`, secondary groups: `devops`)
@@ -40,15 +41,18 @@ sudo whoami
 4. Set initial passwords for all users (use `Password123!` for testing purposes)
 
 **Part B: Configure Password Policies**
+
 5. Configure all regular users to change their passwords every 90 days
 6. Set bob's password to expire immediately, forcing a password change on next login
 7. Lock the contractor1 account (without deleting it) to temporarily disable access
 
 **Part C: Administrative Access**
+
 8. Create a group called `sysadmins` and add `alice` to it
 9. Configure the `sysadmins` group to have sudo access without requiring a password
 
 **Part D: Verification and Management**
+
 10. Display detailed information about `charlie` including all group memberships
 11. List all members of the `devops` group
 12. Remove `charlie` from the `backend` secondary group
@@ -226,11 +230,13 @@ sudo passwd testuser
 **Your Tasks**:
 
 **Part A: System-Wide Configuration**
+
 1. Create a system-wide welcome message that displays when any user logs in, showing: "Welcome to DevServer - $(date)"
 2. Configure a system-wide alias for all users: `ll` should execute `ls -lah --color=auto`
 3. Set a system-wide environment variable `COMPANY_ENV=production` that is available to all users in all shells
 
 **Part B: User-Specific Configuration**
+
 4. For user `alice`, configure her personal environment to:
    - Add `/opt/devtools/bin` to her PATH (at the beginning)
    - Create an alias `gst` that executes `git status`
@@ -239,6 +245,7 @@ sudo passwd testuser
 5. Ensure these settings work for both login and non-login shells
 
 **Part C: Profile Script Management**
+
 6. Create a custom script in `/etc/profile.d/` that sets up development environment variables for all users:
    - `JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64`
    - `MAVEN_HOME=/opt/maven`
@@ -440,16 +447,19 @@ sudo passwd limituser
 **Your Tasks**:
 
 **Part A: Configure System-Wide Limits**
+
 1. Set a system-wide hard limit of maximum 50 processes per user for all regular users (UID >= 1000)
 2. Configure the `frontend` group to have a maximum of 1024 open files (both soft and hard limits)
 3. Set a soft limit of 512 MB (524288 KB) maximum memory size for the `backend` group, with a hard limit of 1 GB (1048576 KB)
 4. Configure a maximum CPU time limit of 60 minutes for user `limituser`
 
 **Part B: Priority and Nice Limits**
+
 5. Allow members of the `devops` group to set process priority up to nice value -10 (higher priority than normal)
 6. Configure maximum file size of 100 MB (102400 KB) for user `contractor1`
 
 **Part C: Testing and Verification**
+
 7. Test the limits by logging in as `limituser` and attempting to exceed the configured resource limits
 8. Use `ulimit` to verify current limits for different users
 
@@ -672,6 +682,7 @@ mount | grep "$(df . | tail -1 | awk '{print $1}')"
 **Your Tasks**:
 
 **Part A: Project Directory Setup**
+
 1. Create a project directory structure:
    - `/projects/webapp/` (owned by root:root)
    - `/projects/webapp/frontend/` 
@@ -679,18 +690,21 @@ mount | grep "$(df . | tail -1 | awk '{print $1}')"
    - `/projects/webapp/shared/`
 
 **Part B: Configure ACLs for Specific Access**
+
 2. Grant user `alice` read, write, and execute permissions on `/projects/webapp/frontend/` directory (in addition to standard permissions)
 3. Grant user `bob` read and execute (but NOT write) permissions on `/projects/webapp/frontend/`
 4. Give the `devops` group full access (rwx) to `/projects/webapp/backend/`
 5. Grant user `charlie` read-only access to `/projects/webapp/shared/`
 
 **Part C: Default ACLs for Inheritance**
+
 6. Configure default ACLs on `/projects/webapp/frontend/` so that:
    - New files and directories automatically grant `alice` read and write permissions
    - New files and directories automatically grant `bob` read-only permissions
 7. Configure `/projects/webapp/shared/` with default ACLs that give the `frontend` group read and write access to all new files
 
 **Part D: Testing and Management**
+
 8. Create test files in each directory and verify that ACLs are correctly applied
 9. Remove `bob`'s ACL entry from `/projects/webapp/frontend/` while keeping other ACLs intact
 10. Backup ACLs for `/projects/webapp/` to a file and demonstrate how to restore them
@@ -897,23 +911,27 @@ sudo dpkg-reconfigure slapd
 **Your Tasks**:
 
 **Part A: LDAP Server Setup (Prerequisite)**
+
 1. Add a test organizational unit (OU) and user to LDAP:
    - Create OU: `users` under `dc=example,dc=com`
    - Create user: `ldapuser1` with UID 5001 and password `LdapPass123`
 
 **Part B: Client-Side LDAP Configuration**
+
 2. Install required packages for LDAP authentication: `sssd`, `libpam-sss`, `libnss-sss`, `ldap-utils`
 3. Configure SSSD to connect to the LDAP server at `ldap://localhost`
 4. Configure the LDAP search base as `dc=example,dc=com`
 5. Set up SSSD to cache credentials for offline authentication
 
 **Part C: System Integration**
+
 6. Configure PAM to use SSSD for authentication
 7. Configure NSS (Name Service Switch) to query SSSD for user information
 8. Enable and start the SSSD service
 9. Configure automatic home directory creation for LDAP users on first login
 
 **Part D: Testing and Verification**
+
 10. Verify LDAP connectivity using `ldapsearch`
 11. Test that LDAP user `ldapuser1` can be queried with `getent passwd ldapuser1`
 12. Attempt to switch to `ldapuser1` and verify authentication works

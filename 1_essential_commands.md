@@ -707,6 +707,7 @@ cd ~/sysadmin_scripts
 **Your Tasks**:
 
 **Part A: Git Operations**
+
 1. Initialize a new Git repository in `~/sysadmin_scripts/`
 2. Create a README.md file with a project description. Add and commit it with message "Initial commit: Add README"
 3. Create a new branch called `development` and switch to it
@@ -716,11 +717,13 @@ cd ~/sysadmin_scripts
 7. Create a `.gitignore` file that ignores all files ending in `.log`, `.tmp`, and the directory `temp/`
 
 **Part B: Environment Variables and Aliases**
+
 8. Create a persistent environment variable `BACKUP_DIR=/opt/backups` that survives reboots (add to `~/.bashrc`)
 9. Create an alias `ll` for `ls -lah --color=auto` and make it permanent
 10. Create a bash function called `mkcd` that creates a directory and immediately changes into it. Make it permanent
 
 **Part C: Shell Scripting**
+
 11. Write a bash script `~/sysadmin_scripts/system_info.sh` that:
     - Displays current date and time
     - Shows system hostname
@@ -1178,6 +1181,7 @@ cd ~/ssl_lab
 **Your Tasks**:
 
 **Part A: Certificate Generation**
+
 1. Generate a self-signed SSL certificate for domain `test.local`:
    - Create a 2048-bit RSA private key
    - Generate a Certificate Signing Request (CSR) with the following details:
@@ -1192,6 +1196,7 @@ cd ~/ssl_lab
 2. Create a certificate with Subject Alternative Names (SANs) for multiple domains: `webapp.local`, `api.webapp.local`, `www.webapp.local`
 
 **Part B: Certificate Inspection and Conversion**
+
 3. Display the certificate details for `test.local.crt` including:
    - Issuer and subject information
    - Validity dates (not before, not after)
@@ -1203,6 +1208,7 @@ cd ~/ssl_lab
 5. Convert the certificate from PEM format to DER format and back
 
 **Part C: Web Server Configuration**
+
 6. Configure Apache to use your SSL certificate:
    - Enable SSL module
    - Create a virtual host on port 443 for `test.local`
@@ -1212,6 +1218,7 @@ cd ~/ssl_lab
 7. Test the SSL configuration and verify the certificate is being served correctly
 
 **Part D: Certificate Troubleshooting**
+
 8. Check certificate expiration dates and create a script that warns if a certificate expires within 30 days
 
 9. Download and inspect a real website's certificate chain (e.g., from `www.google.com`)
@@ -1656,6 +1663,7 @@ EOF
 **Your Tasks**:
 
 **Part A: Basic Navigation and Editing**
+
 1. Open `configs/app.conf` in vim and:
    - Navigate to line 5 using line number command
    - Change `enable_ssl = false` to `enable_ssl = true`
@@ -1664,6 +1672,7 @@ EOF
    - Save and quit
 
 **Part B: Search and Replace**
+
 2. In `configs/app.conf`:
    - Search for the word "localhost" 
    - Replace ALL occurrences of "localhost" with "db.production.local"
@@ -1671,6 +1680,7 @@ EOF
    - Verify changes and save
 
 **Part C: Advanced Editing**
+
 3. In `logs/application.log`:
    - Delete all lines containing "INFO"
    - Copy all lines containing "ERROR" to a new section at the end of the file with header "=== Error Summary ==="
@@ -1678,6 +1688,7 @@ EOF
    - Save as `logs/errors_filtered.log`
 
 **Part D: Visual Mode and Blocks**
+
 4. In `configs/hosts.txt`:
    - Use visual block mode to comment out all lines (add # at the beginning)
    - Select the IP address column and copy it
@@ -1685,18 +1696,21 @@ EOF
    - Undo the changes, then redo them
 
 **Part E: Multiple Files and Buffers**
+
 5. Open all three configuration files (`app.conf`, `backup.sh`, `hosts.txt`) in vim simultaneously:
    - Navigate between buffers
    - In each file, add a comment header with the filename and current date
    - Save all files and quit
 
 **Part F: Macros and Automation**
+
 6. In `configs/hosts.txt`:
    - Record a macro that converts each line to an `/etc/hosts` entry format
    - Apply the macro to all lines
    - Save the result
 
 **Part G: Vim Configuration**
+
 7. Create a `~/.vimrc` file with useful settings:
    - Enable line numbers
    - Set tab size to 4 spaces
